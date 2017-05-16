@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/OpenDirective/stepping-stones.svg?label=ready&title=Ready)](http://waffle.io/OpenDirective/stepping-stones) 
+
 # stepping-stones
 Web components providing media and communications access with configurable cognitive complexity.
 
