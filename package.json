@@ -6,39 +6,11 @@
   "module": "lib/stepping-stones.ts",
   "typings": "lib/types/stepping-stones.d.ts",
   "devDependencies": {
-    "@types/mocha": "^2.2.41",
-    "@webpack-blocks/babel6": "^0.4.1",
-    "@webpack-blocks/dev-server2": "^0.4.0",
-    "@webpack-blocks/extract-text2": "^0.4.0",
-    "@webpack-blocks/postcss": "^0.4.3",
-    "@webpack-blocks/sass": "^0.4.0",
-    "@webpack-blocks/tslint": "^0.4.0",
-    "@webpack-blocks/typescript": "^0.4.1",
-    "@webpack-blocks/webpack2": "^0.4.0",
-    "autoprefixer": "^7.1.0",
-    "babel-plugin-istanbul": "^4.1.3",
-    "babel-plugin-transform-custom-element-classes": "^0.1.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
-    "babili-webpack-plugin": "0.0.11",
-    "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^5.0.0",
+    "cycle-scripts-one-fits-all": "3.1.0",
     "cyclejs-test-helpers": "^1.3.0",
     "html-looks-like": "^1.0.2",
-    "html-webpack-plugin": "^2.28.0",
     "jsverify": "^0.8.2",
-    "mocha": "^3.4.1",
-    "mocha-webpack": "^0.7.0",
-    "nyc": "^10.3.2",
-    "progress-bar-webpack-plugin": "^1.9.3",
-    "rimraf": "^2.6.1",
-    "snabbdom-pragma": "^2.2.0",
-    "snabbdom-to-html": "^3.1.1",
-    "typescript": "^2.3.2",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5",
-    "webpack-node-externals": "^1.6.0"
+    "snabbdom-to-html": "^3.1.1"
   },
   "dependencies": {
     "@cycle/dom": "^17.3.0",
@@ -49,11 +21,12 @@
     "xstream": "^10.8.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "test": "cross-env NODE_ENV=test nyc mocha-webpack --timeout=100000 --colors --webpack-config webpack.config.test.js test/**/*.test.*",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "build:lib": "tsc -p tsconfig.lib.json",
-    "clean": "rimraf lib build .tmp .nyc_output coverage"
+    "start": "cycle-scripts start",
+    "test": "cycle-scripts test",
+    "build": "cycle-scripts build",
+    "eject": "cycle-scripts eject",
+    "clean": "cycle-scripts clean",
+    "build:lib": "tsc -p tsconfig.lib.json"
   },
   "nyc": {
     "include": [
@@ -62,37 +35,6 @@
     "reporter": [
       "html",
       "text-summary"
-    ]
-  },
-  "babel": {
-    "env": {
-      "test": {
-        "plugins": [
-          "istanbul"
-        ]
-      }
-    },
-    "presets": [
-      [
-        "env",
-        {
-          "modules": false,
-          "targets": {
-            "browsers": [
-              "last 2 versions"
-            ]
-          },
-          "useBuiltIns": true
-        }
-      ]
-    ],
-    "plugins": [
-      [
-        "transform-react-jsx",
-        {
-          "pragma": "Snabbdom.createElement"
-        }
-      ]
     ]
   }
 }
