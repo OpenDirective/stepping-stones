@@ -2,7 +2,7 @@ import xs, { Stream } from 'xstream'
 import { VNode, DOMSource } from '@cycle/dom'
 import { StateSource } from 'cycle-onionify'
 
-import { Sources, Sinks } from './interfaces'
+import { Sources, Sinks } from './drivers'
 
 export type AppSources = Sources & { onion : StateSource<AppState> }
 export type AppSinks = Sinks & { onion : Stream<Reducer> }
